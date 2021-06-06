@@ -53,7 +53,8 @@ def post_view(request, username, post_id):
         'post': post,
         'count': count_post,
         'author': author,
-        })
+        }
+        )
 
 
 @login_required
