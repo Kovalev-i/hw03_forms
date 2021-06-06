@@ -49,12 +49,9 @@ def post_view(request, username, post_id):
     author = get_object_or_404(User, username=username)
     post = Post.objects.select_related('author').get(id=post_id)
     count_post = Post.objects.filter(author__username=username).count()
-    return render(request, 'post.html', {
-        'post': post,
-        'count': count_post,
-        'author': author,
-        }
-        )
+    return render(
+        request, 'post.html',
+        {'post': post, 'count': count_post, 'author': author})
 
 
 @login_required
